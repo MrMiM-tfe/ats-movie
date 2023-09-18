@@ -4,6 +4,10 @@ function About() {
         e.preventDefault();
         window.api.openLinkInChrome("https://discord.gg/qUAWxapD8X")
     }
+    const handleLinkGit = (e) => {
+        e.preventDefault();
+        window.api.openLinkInChrome("https://github.com/MrMiM-tfe/ats-movie")
+    }
 
     return (
         <div className="about">
@@ -19,6 +23,9 @@ function About() {
             <br />
             <p>
                 سرور دیسکورد ما : <a href="https://discord.gg/qUAWxapD8X" onClick={handleLink}>https://discord.gg/qUAWxapD8X</a>
+            </p>
+            <p>
+                لینک گیت هاب : <a href="https://github.com/MrMiM-tfe/ats-movie" onClick={handleLinkGit}>https://github.com/MrMiM-tfe/ats-movie</a>
             </p>
         </div>
     )

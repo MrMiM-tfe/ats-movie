@@ -508,6 +508,50 @@ p {
   width: 100%;
 }
 
+.single-movie .comments {
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 12px 0px var(--white-shadow);
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.single-movie .load-comments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-movie .comment {
+  margin: 0px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--gray-400);
+}
+.single-movie .comment .content {
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+
+.single-movie .comment .user {
+  color: var(--gray-900);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.single-movie .comment .created {
+  color: var(--gray-900);
+  font-weight: 400;
+}
+
+.single-movie .load-comments-btn {
+  padding: 10px 30px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bolder;
+  background-color: var(--gray-400);
+}
+
 /* about ----------------------------------------------------- */
 .about h1 {
   text-align: center;

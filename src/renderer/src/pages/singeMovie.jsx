@@ -5,6 +5,7 @@ import useHorizontalScroll from "../hooks/useHorizontalScroll"
 import useSerie from "../hooks/useSerie";
 import { Dropdown } from 'primereact/dropdown';
 import { Toast } from 'primereact/toast';
+import useComment from "../hooks/useComment";
 
 function VideoPlayer({url, ref}) {
     const videoRef = useRef(null);
@@ -88,6 +89,7 @@ function SingleMovie() {
     
 
     const {getSeasons, Seasons} = useSerie()
+    const {getComments, Comments, pending} = useComment()
     const { selectedMovie } = useData()
 
     useEffect(() => {
@@ -96,8 +98,15 @@ function SingleMovie() {
             return
         }
 
+        
         if (selectedMovie?.type === "serie") getSeasons(selectedMovie.id)
     },[])
+
+    const loadComments = () => {
+        getComments(selectedMovie.id)
+    }
+
+    console.log(Comments);
 
     useEffect(() => {
         setSeasonId(Seasons[0]?.id)
@@ -203,6 +212,31 @@ function SingleMovie() {
 
                 {selectedMovie.type === "serie" && PlaySection({sources, ref: playSectionRef})}
                 {selectedMovie.type === "movie" && PlaySection({sources: selectedMovie.sources, ref: playSectionRef})}
+
+                <div className="comments container">
+                    {(!Comments) && (
+                        <div className="load-comments" onClick={loadComments}>
+                            {!pending && (<button className="load-comments-btn">
+                                load comments
+                            </button>)}
+                            {pending && (<p>Loading...</p>)}
+                        </div>
+                    )}
+                    {Comments && Comments.map(comment => (
+                        <div className="comment">
+                            <p className="user">{comment.user === "سردبیر مووی باکس" ? "سردبیر" : comment.user}</p>
+                            <p className="content">
+                                {
+                                    decodeURIComponent(escape(atob(comment.content)))
+                                        .replace("مووی باکس", "ats movie")
+                                        .replace("موویباکس", "ats movie")
+                                        .replace("moviebox", "ats movie")
+                                }
+                            </p>
+                            <p className="created">{comment.created}</p>
+                        </div>
+                    ))}
+                </div>
                 </>
             )}
         </div>
