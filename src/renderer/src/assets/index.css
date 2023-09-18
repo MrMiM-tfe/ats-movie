@@ -257,6 +257,11 @@ p {
   border-radius: 20px;
 }
 
+.favorites .list .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* movies page ----------------------------------------------------- */
 
@@ -417,8 +422,27 @@ p {
   font-weight: bolder;
 }
 
+.single-movie .info .play-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .single-movie .info .play {
   margin-top: 10px;
+}
+
+.single-movie .info .watched {
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.single-movie .info .watched i{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.single-movie .info .watched .active {
+  color: var(--green-500);
 }
 
 .single-movie .info .play-btn {
@@ -470,6 +494,22 @@ p {
 
 .single-movie .episode .episode-play button:hover {
   background-color: var(--gray-800);
+  cursor: pointer;
+}
+
+.single-movie .episode .watched .active{
+  color: var(--green-500);
+}
+
+.single-movie .episode .watched i {
+  background-color: var(--gray-700);
+  color: var(--gray-300);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
   cursor: pointer;
 }
 
@@ -550,6 +590,17 @@ p {
   border: none;
   font-weight: bolder;
   background-color: var(--gray-400);
+}
+
+.single-movie .favorite {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.single-movie .favorite i{
+  color: red;
+  font-size: 50px;
+  cursor: pointer;
 }
 
 /* about ----------------------------------------------------- */

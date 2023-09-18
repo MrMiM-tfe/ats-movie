@@ -3,6 +3,7 @@ import API from "../API"
 
 const useMovie = () => {
     const [Movies, setMovies] = useState([]);
+    const [Favorites, setFavorites] = useState([]);
     const [pending, setPending] = useState(false);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(0);
@@ -52,7 +53,19 @@ const useMovie = () => {
         setPending(false)
     }
 
-    return {Movies, pending, error, getMovies, getMore}
+    const getFavorites = async (favoritesList) => {
+        setPending(true)
+        for (const favorite of favoritesList) {
+            const {res, err} = await API(`movie/by/${favorite}/1`)
+            if(res){
+                Favorites.push(res.data)
+                setFavorites(Favorites)
+            }
+        }
+        setPending(false)
+    }
+
+    return {Movies, pending, error, getMovies, getMore, getFavorites, Favorites}
 }
 
 export default useMovie

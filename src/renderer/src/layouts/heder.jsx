@@ -28,6 +28,7 @@ function Header() {
                 <NavItem label="Home" to="/"/>
                 <NavItem label="Movies" to="/movies"/>
                 <NavItem label="Series" to="/series"/>
+                <NavItem label="Favorites" to="/favorites"/>
                 <NavItem label="About" to="/about"/>
             </div>
         </div>
