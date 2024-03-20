@@ -280,7 +280,6 @@ p {
 }
 
 /* series page ----------------------------------------------------- */
-
 .series .list .item {
   display: flex;
   align-items: center;
@@ -373,6 +372,39 @@ p {
 }
 
 /* single movie page ----------------------------------------------------- */
+.single-movie-card-bg {
+  position: absolute;
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-movie-card {
+  padding: 10px;
+  /* margin: ; */
+  border: 2px solid var(--gray-500);
+  border-radius: 10px;
+  overflow-y: scroll;
+  /* position: absolute; */
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  /* left: 50%;
+  top: 50%; */
+  /* transform: translate(-50%,-50%); */
+  height: 90vh;
+  width: 90vw;
+  z-index: 100;
+  background-color: var(--surface-900);
+}
+
 .single-movie {
   text-align: end;
 }
@@ -610,4 +642,18 @@ p {
 }
 .about {
   direction: rtl;
+}
+
+.load-more-div {
+  width: 100%;
+  text-align: center;
+}
+
+.load-more-btn {
+  padding: 10px 30px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bolder;
+  background-color: var(--green-600);
+  color: var(--gray-300);
 }

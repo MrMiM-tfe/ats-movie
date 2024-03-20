@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import CategoryList from "../components/categoryList"
 import MovieList from "../components/movieList"
 import useHomeData from "../hooks/useHomeData"
 
@@ -13,7 +12,6 @@ function Home() {
 
     return (
         <div className="home">
-            <CategoryList/>
             <div className="data">
                 {Data.genres && Data.genres.map((item , i) => (
                     <MovieList key={i} movies={item.posters} title={item.title} />

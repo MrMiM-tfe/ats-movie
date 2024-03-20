@@ -36,7 +36,7 @@ const SearchProvider = ({ children }) => {
     if (location.pathname != '/search' && searchText !== '') {
       navigate('/search')
     }
-    if (searchText === '') {
+    if (searchText === ''  && location.pathname === '/search') {
         navigate("/")
     }
     search()
