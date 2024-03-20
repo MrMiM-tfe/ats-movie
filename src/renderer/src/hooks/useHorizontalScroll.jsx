@@ -5,10 +5,11 @@ const useHorizontalScroll = () => {
 
   useEffect(() => {
     const container = containerRef.current;
-
+  
     if (!container) return
 
     const handleScroll = (event) => {
+      if (event.target.parentElement.className !== "image" && event.target.className !== "list") return
       if (event.deltaX !== 0) return
       event.preventDefault();
       container.scrollLeft += event.deltaY;

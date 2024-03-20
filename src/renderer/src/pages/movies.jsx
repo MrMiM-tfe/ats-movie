@@ -21,7 +21,7 @@ function Movies() {
 
     const handleScroll = (e) => {
         const isEnd = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-        if (isEnd) getMore()   
+        if (isEnd) getMore(order, filter)   
     }
     
     return (
@@ -37,12 +37,15 @@ function Movies() {
                     </div>
                 ))}
 
-                {pending && (
-                    <div className="loading">
-                        <p> Loading...</p>
-                    </div>
-                )}
             </div>
+            
+            {!pending && (
+                <div className="load-more-div">
+                    <button className="load-more-btn" onClick={() => getMore(order, filter)}>
+                        load more
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

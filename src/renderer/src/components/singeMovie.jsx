@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useData } from '../contexts/data'
 import { useEffect, useRef, useState } from 'react'
 import useHorizontalScroll from '../hooks/useHorizontalScroll'
@@ -6,7 +6,6 @@ import useSerie from '../hooks/useSerie'
 import { Dropdown } from 'primereact/dropdown'
 import { Toast } from 'primereact/toast'
 import useComment from '../hooks/useComment'
-import useMovie from '../hooks/useMovie'
 
 function VideoPlayer({ url, ref }) {
   const videoRef = useRef(null)
@@ -91,7 +90,6 @@ function PlaySection({ sources, ref }) {
 }
 
 function SingleMovie() {
-  const navigate = useNavigate()
   const scrollRef = useHorizontalScroll()
   const playSectionRef = useRef(null)
 
@@ -102,21 +100,10 @@ function SingleMovie() {
 
   const { getSeasons, Seasons } = useSerie()
   const { getComments, Comments, pending } = useComment()
-  const { selectedMovie, userData, addFav, delFav, markAsWatched, markAsUnwatched, setSelectedMovie} = useData()
-  const { getMovie } = useMovie()
-
-  const {id} = useParams()
+  const { selectedMovie, userData, addFav, delFav, markAsWatched, markAsUnwatched } = useData()
 
   useEffect(() => {
-    if (!selectedMovie && !id) {
-      navigate('/')
-      return
-    }
-
-    if(!selectedMovie && id) {
-      const movie = getMovie(id)
-      setSelectedMovie(movie)
-    }
+    console.log(userData)
 
     if (selectedMovie?.type === 'serie') getSeasons(selectedMovie.id)
   }, [])
