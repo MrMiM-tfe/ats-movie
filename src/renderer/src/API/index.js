@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import { Cookies } from "react-cookie";
 
-const baseURL = 'http://hostinnegar.com/api/'
+const baseURL = 'http://takhosting.org/api/'
 
 const API = async (url, method = 'GET', body = {}, headers = {}) => {
   // const cookies = new Cookies();
