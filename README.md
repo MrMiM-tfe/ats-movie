@@ -12,7 +12,7 @@ web: https://ats-movie.iran.liara.run
 ### 2. برای نمایش ویدیو ها در پخش انلاین حتما باید ویدیو رو با یک ویدیو پلیر جانبی باز کنید. پلیر خود برنامه زیرنویس ها را نمایش نمیدهد. پلیر پیشنهادی : vlc media player
 
 ## دانلود و نصب
-### لینک دانلود : <a href="https://github.com/MrMiM-tfe/ats-movie/releases/download/1.2.0/ats-movie-1.2.0-setup.exe">دانلود</a>
+### لینک دانلود : <a href="https://github.com/MrMiM-tfe/ats-movie/releases/download/1.5.0/ats-movie-3.0.0-setup.exe">دانلود</a>
 
 ## آموزش پخش انلاین با VLC
 1 - روی media کلیک کنید
