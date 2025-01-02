@@ -102,7 +102,7 @@ function SingleMovie() {
 
   const { getSeasons, Seasons } = useSerie()
   const { getComments, Comments, pending } = useComment()
-  const { selectedMovie, userData, addFav, delFav, markAsWatched, markAsUnwatched, setSelectedMovie} = useData()
+  const { selectedMovie, setSelectedMovie} = useData()
   const { getMovie } = useMovie()
 
   const {id} = useParams()
@@ -120,8 +120,6 @@ function SingleMovie() {
 
     if (selectedMovie?.type === 'serie') getSeasons(selectedMovie.id)
   }, [])
-
-  const is_favorite = userData.favorites.indexOf(selectedMovie.id) !== -1
 
   const loadComments = () => {
     getComments(selectedMovie.id)
@@ -153,13 +151,6 @@ function SingleMovie() {
     if (playSectionRef.current) {
       playSectionRef.current.style.display = 'block'
     }
-  }
-
-  const delFa = () => {
-    delFav(selectedMovie.id)
-  }
-  const addFa = () => {
-    addFav(selectedMovie.id)
   }
 
   return (
@@ -203,27 +194,8 @@ function SingleMovie() {
                       <i className="pi pi-play"></i> Play
                     </button>
                   </div>
-                  <div className="watched">
-                    <i
-                      className={
-                        userData.watched.includes(selectedMovie.id)
-                          ? 'pi pi-eye active'
-                          : 'pi pi-eye'
-                      }
-                      onClick={() => {
-                        userData.watched.includes(selectedMovie.id)
-                          ? markAsUnwatched(selectedMovie.id)
-                          : markAsWatched(selectedMovie.id)
-                      }}
-                    ></i>
-                  </div>
                 </div>
               )}
-
-              <div className="favorite">
-                {is_favorite && <i className="pi pi-heart-fill" onClick={delFa}></i>}
-                {!is_favorite && <i className="pi pi-heart" onClick={addFa}></i>}
-              </div>
 
               {selectedMovie.type === 'serie' && (
                 <div className="seasons">
@@ -259,18 +231,6 @@ function SingleMovie() {
                       <button onClick={(e) => handleSeriePlayButton(episode.sources)}>
                         <i className="pi pi-play" />
                       </button>
-                    </div>
-                    <div className="watched col-1">
-                      <i
-                        className={
-                          userData.watched.includes(episode.id) ? 'pi pi-eye active' : 'pi pi-eye'
-                        }
-                        onClick={() => {
-                          userData.watched.includes(episode.id)
-                            ? markAsUnwatched(episode.id)
-                            : markAsWatched(episode.id)
-                        }}
-                      ></i>
                     </div>
                     <div className="title col">
                       <div>{episode.title}</div>

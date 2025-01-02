@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import { Cookies } from "react-cookie";
 
-const baseURL = 'http://takhosting.org/api/'
+const baseURL = 'https://ats-movie.iran.liara.run/api/'
 
 const API = async (url, method = 'GET', body = {}, headers = {}) => {
   // const cookies = new Cookies();
