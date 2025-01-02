@@ -23,7 +23,7 @@ function createWindow() {
     mainWindow.show()
   })
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   ipcMain.handle("save", (e, args) => `saved ${args}`)
 
